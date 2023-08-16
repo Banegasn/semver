@@ -27,13 +27,13 @@
     "conventional-changelog": "^4.0.0",
     "conventional-recommended-bump": "^7.0.0",
     "detect-indent": "6.1.0",
-    "inquirer": "8.2.6",
+    "inquirer": "9.2.10",
     "rxjs": "7.8.1"
   },
   "devDependencies": {
     "@types/conventional-changelog": "^3.1.1",
     "@types/conventional-recommended-bump": "6.1.0",
-    "@types/inquirer": "8.2.6",
+    "@types/inquirer": "9.0.3",
     "@types/rimraf": "3.0.2",
     "@types/semver": "7.5.0",
     "@types/standard-version": "7.1.0",
