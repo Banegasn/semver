@@ -1,11 +1,15 @@
 import { execFile, type ChildProcess } from 'child_process';
 import { Observable, type Subscriber } from 'rxjs';
 
-export function exec(cmd: string, args: string[] = []): Observable<string> {
+export function exec(cmd: string, args: string[] = [], retries: number = 0): Observable<string> {
   return new Observable((subscriber: Subscriber<string>) => {
     const process = execFile(cmd, args, (error, stdout, stderr) => {
       if (error) {
-        subscriber.error(new Error(stderr));
+        if (retries > 0) {
+          setTimeout(() => exec(cmd, args, retries - 1).subscribe(subscriber), Math.pow(2, retries) * 1000);
+        } else {
+          subscriber.error(new Error(stderr));
+        }
         return;
       }
 
