@@ -26,7 +26,7 @@ export function commit({
     ...(noVerify ? ['--no-verify'] : []),
     '-m',
     commitMessage,
-  ]).pipe(
+  ], 3).pipe(
     map(() => undefined),
     logStep({
       step: 'commit_success',
